@@ -1,0 +1,40 @@
+!!!
+%html
+  %head
+    %title CompanyLibrary
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    .wrapper
+      %nav#sidebar
+        / Sidebar Header
+        .sidebar-header
+          %h3 Collapsible Sidebar
+    / Sidebar Links
+    %ul.list-unstyled.components
+      %li.active
+        %a{:href => "#"} Home
+      %li
+        %a{:href => "#"} About
+      %li
+        / Link with dropdown items
+        %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#homeSubmenu"} Pages
+        %ul#homeSubmenu.collapse.list-unstyled
+          %li
+            %a{:href => "#"} Page
+          %li
+            %a{:href => "#"} Page
+          %li
+            %a{:href => "#"} Page
+      %li
+        %a{:href => "#"} Portfolio
+      %li
+        %a{:href => "#"} Contact
+    #content
+      %button#sidebarCollapse.navbar-btn{:type => "button"}
+        %span
+        %span
+        %span
+      %div
+      = yield
