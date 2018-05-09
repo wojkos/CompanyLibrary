@@ -1,0 +1,37 @@
+%p#notice
+  = notice
+
+%h1 Books
+
+%table.table.table-striped.table-condensed#books_list
+  %thead
+    %tr
+      %th.text-nowrap
+        %span.glyphicon.glyphicon-sort
+          Title
+      %th.text-nowrap
+        %span.glyphicon.glyphicon-sort
+          Author
+      %th.text-nowrap
+        %span.glyphicon.glyphicon-sort
+          Category
+      %th.text-nowrap
+        %span.glyphicon.glyphicon-sort
+          Is borrowed
+      %th
+  %tbody
+    - @books.each do |book|
+      %tr
+        %td.tittle.text-nowrap
+          = link_to book_path(book) do
+            = book.tittle
+        %td.author.text-nowrap
+          = book.author
+        %td.category.text-nowrap
+          = book.category
+        %td.is_borrowed.text-nowrap
+          = book.is_borrowed
+        %td
+          = link_to '<span class="glyphicon glyphicon-hand-right" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Zobacz"></span>'.html_safe, book, :class => 'btn-xs-action'
+          = link_to '<span class="glyphicon glyphicon-pencil" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Edytuj"></span>'.html_safe, edit_book_path(book), :class => 'btn-xs-action'
+          = link_to '<span class="glyphicon glyphicon-trash" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Usuń"></span>'.html_safe, book, method: :delete, data: { confirm: "Czy na pewno chcesz usunąć dokument '#{book.tittle}'?" },:class => 'btn-xs-action-danger'
