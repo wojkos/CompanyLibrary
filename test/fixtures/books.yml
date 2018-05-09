@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tittle: MyString
+  author: MyText
+  category: MyText
+  image_url: MyString
+  is_borrowed: false
+
+two:
+  tittle: MyString
+  author: MyText
+  category: MyText
+  image_url: MyString
+  is_borrowed: false
