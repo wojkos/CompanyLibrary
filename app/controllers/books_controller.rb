@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_book, only: [:show, :edit, :update, :destroy, :borrow, :return_book]
 
   # GET /books
   # GET /books.json
@@ -56,7 +56,23 @@ class BooksController < ApplicationController
   def destroy
     @book.destroy
     respond_to do |format|
-      format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
+      format.html { redirect_to books_url, notice: 'Książka została usunięta.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def borrow 
+    @book.borrow current_user
+    respond_to do |format|
+      format.html { redirect_to books_url, notice: "Gratulacje! Wypożyczyłeś książkę #{@book.tittle}" }
+      format.json { head :no_content }
+    end
+  end
+  
+  def return_book
+    @book.return_book
+    respond_to do |format|
+      format.html { redirect_to books_url, notice: "Oddałeś książkę #{@book.tittle}" }
       format.json { head :no_content }
     end
   end
@@ -69,6 +85,6 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:tittle, :author, :category, :image, :is_borrowed)
+      params.require(:book).permit(:tittle, :author, :category, :image, :is_borrowed, :borrow_by_id)
     end
 end

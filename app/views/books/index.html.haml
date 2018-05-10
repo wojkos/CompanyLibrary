@@ -31,7 +31,9 @@
           = book.category
         %td.is_borrowed.text-nowrap
           = book.is_borrowed
-        %td
+        %td.buttons_cell
           = link_to '<span class="glyphicon glyphicon-hand-right" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Zobacz"></span>'.html_safe, book, :class => 'btn-xs-action'
           = link_to '<span class="glyphicon glyphicon-pencil" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Edytuj"></span>'.html_safe, edit_book_path(book), :class => 'btn-xs-action'
+          = link_to '<span class="glyphicon glyphicon-plus" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Wypożycz"></span>'.html_safe, borrow_book_path(book), :class => 'btn-xs-action-prompt'
+          = link_to '<span class="glyphicon glyphicon-minus" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Zwróć"></span>'.html_safe, return_book_book_path(book), :class => 'btn-xs-action-prompt'
           = link_to '<span class="glyphicon glyphicon-trash" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Usuń"></span>'.html_safe, book, method: :delete, data: { confirm: "Czy na pewno chcesz usunąć dokument '#{book.tittle}'?" },:class => 'btn-xs-action-danger'

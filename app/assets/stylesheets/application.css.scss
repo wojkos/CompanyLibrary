@@ -190,10 +190,26 @@ a.article:hover {
     }
 }
 
-.pt-30{
+.pt-30 {
     padding-top: 30px;
 }
 
 a:visited {
     color: white;
+}
+
+a:hover {
+    background-color: transparent;
+}
+
+#books_list a:visited {
+    color: black;
+}
+
+.buttons_cell a:visited {
+    color: white !important;
+}
+
+#books_list a:hover {
+    background-color: none;
 }

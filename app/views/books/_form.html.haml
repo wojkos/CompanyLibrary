@@ -7,22 +7,20 @@
       %ul
         - book.errors.full_messages.each do |message|
           %li= message
-  .field
+  .form-group
     = form.label :tittle
-    = form.text_field :tittle, id: :book_tittle
-  .field
+    = form.text_field :tittle, id: :book_tittle, class: 'form-control'
+  .form-group
     = form.label :author
-    = form.text_area :author, id: :book_author
-  .field
+    = form.text_area :author, id: :book_author, class: 'form-control'
+  .form-group
     = form.label :category
-    = form.text_area :category, id: :book_category
+    = form.text_area :category, id: :book_category, class: 'form-control'
     -unless @book.image_file_name.nil?
       =image_tag @book.image.url(:medium)
     .form-group
     = form.label :image, 'Obraz'
     = form.file_field :image, class: 'form-control'
-  .field
-    = form.label :is_borrowed
-    = form.check_box :is_borrowed, id: :book_is_borrowed
+  .form-group
   .actions
-    = form.submit
+    = form.submit "Zatwierdź", class: "btn btn-primary"
