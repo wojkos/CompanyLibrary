@@ -1,33 +1,26 @@
 %p#notice= notice
-%p
-  %strong Tittle:
-  = @book.tittle
-%p
-  %strong Author:
-  = @book.author
-%p
-  %strong Category:
-  = @book.category
-%p
-  %strong Image url:
-  -unless @book.image_file_name.nil?
-    =image_tag @book.image.url(:medium)
-
-%p
-  %strong Is borrowed:
-  = @book.is_borrowed
-= link_to 'Edit', edit_book_path(@book)
-= link_to 'Back', books_path, class: 'btn btn-xs-action'
-
-
--# %p#notice= notice
--#   .row
--#     .col-md-offset-2.col-md-8
--#       .panel.panel-default
--#         .panel-heading.center
--#           =image_tag @pin.image.url(:medium)
--#         .panel-body
--#           = @pin.description
--#           -if @pin.user == current_user
--#             = link_to 'Edit', edit_pin_path(@pin)
--#           = link_to 'Back', pins_path
+.container
+  .row
+    .col-xs-12.col-md-4
+      -unless @book.image_file_name.nil?
+        =image_tag @book.image.url(:medium)
+    .col-xs-12.col-md-8
+      %h2
+        %strong Tytuł:
+        = @book.tittle
+      %h3
+        %strong Author:
+        = @book.author
+      %h4
+        %strong Category:
+        = @book.category
+      %p 
+        %strong 
+          Is borrowed:
+          = @book.is_borrowed
+        = link_to 'Wypożycz', books_path, class: 'btn btn-warning btn-lg'
+  .row
+    .col-xs-12.pt-30
+      %p.text-center
+        = link_to 'Edit', edit_book_path(@book) , class: 'btn btn-primary btn-lg'
+        = link_to 'Back', books_path, class: 'btn btn-primary btn-lg'

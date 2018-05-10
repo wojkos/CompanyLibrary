@@ -39,6 +39,8 @@ gem 'jquery-rails'
 gem 'faker'
 gem 'jquery-datatables-rails'
 gem "paperclip", "~> 5.0.0"
+gem "omniauth-google-oauth2", "~> 0.2.1"
+
 
 group :development, :test do
   gem 'better_errors'

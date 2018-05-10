@@ -10,7 +10,16 @@
         / Sidebar Holder
         %nav#sidebar
           .sidebar-header
-            %h3 Bootstrap Sidebar
+            %h3 Company Library
+            -if current_user
+              Zalogowano jako:
+              %br
+              %strong
+                = current_user.name
+              %br
+              = link_to "Wyloguj", signout_path, id: "sign_out", class: 'btn btn-info pull-right'
+            -# -else
+            -#   = link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" 
           %ul.list-unstyled.components
             %p Dummy Heading
             %li.active

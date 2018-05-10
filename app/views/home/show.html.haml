@@ -1,0 +1,10 @@
+.container
+    .row
+        .col-xs-12
+            %h1 Witaj w Company Library!
+            %h3 Co chcesz dziś przeczytać?
+        
+    -unless current_user
+        .row
+            .col-xs-12.text-center
+                = link_to "Zaloguj się i coś wypożycz", "/auth/google_oauth2", id: "sign_in", class: "btn btn-info btn-lg"
