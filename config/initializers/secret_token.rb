@@ -1,0 +1,1 @@
+CompanyLibrary::Application.config.secret_key_base = 'fee6d0108f2bd84ac6e5eeedf165a7b6741b7546cd8c3bc7520b8fe4c463c5620d8a965eed75b5d35c704e9d9ec4ccf142056c48d60228d22df51e5683849fb4'

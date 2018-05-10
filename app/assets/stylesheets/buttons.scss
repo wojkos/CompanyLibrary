@@ -1,0 +1,62 @@
+@import "bootstrap_mod";
+
+.btn-wide {
+    padding-right: 3em;
+    padding-left: 3em;
+  }
+  .btn-margin {
+    margin:2px;
+  }
+  .btn-action {
+    @extend .btn;
+    @extend .btn-primary;
+    @extend .btn-margin;
+  }
+  .btn-xs-action {
+    @extend .btn-action;
+    @extend .btn-xs;
+  }
+  .btn-xs-action-danger {
+    @extend .btn-action;
+    @extend .btn-danger;
+    @extend .btn-xs;
+  }
+  .btn-xs-action-success {
+    @extend .btn-action;
+    @extend .btn-success;
+    @extend .btn-xs;
+  }
+  .btn-xs-action-prompt {
+    @extend .btn-action;
+    @extend .btn-warning;
+    @extend .btn-xs;
+  }
+  .btn-xs-action-gray {
+    @extend .btn-action;
+    @extend .btn-default;
+    @extend .btn-xs;
+    background-color: #cccccc;
+    border-color: #999999;
+  }
+  .btn-action-wide {
+    @extend .btn-action;
+    @extend .btn-primary;
+    @extend .btn-wide;
+  }
+  .btn-action-danger {
+    @extend .btn-action;
+    @extend .btn-danger;
+  }
+  .btn-action-prompt {
+    @extend .btn-action;
+    @extend .btn-warning;
+  }
+  .btn-action-success {
+    @extend .btn-action;
+    @extend .btn-success;
+  }
+  
+  .btn-action-success {
+    @extend .btn-action;
+    @extend .btn-success;
+  }

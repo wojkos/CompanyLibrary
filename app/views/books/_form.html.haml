@@ -1,0 +1,28 @@
+= form_with(model: book, local: true) do |form|
+  - if book.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(book.errors.count, "error")
+        prohibited this book from being saved:
+      %ul
+        - book.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = form.label :tittle
+    = form.text_field :tittle, id: :book_tittle
+  .field
+    = form.label :author
+    = form.text_area :author, id: :book_author
+  .field
+    = form.label :category
+    = form.text_area :category, id: :book_category
+    -unless @book.image_file_name.nil?
+      =image_tag @book.image.url(:medium)
+    .form-group
+    = form.label :image, 'Obraz'
+    = form.file_field :image, class: 'form-control'
+  .field
+    = form.label :is_borrowed
+    = form.check_box :is_borrowed, id: :book_is_borrowed
+  .actions
+    = form.submit
