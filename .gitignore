@@ -97,7 +97,7 @@ Gemfile.lock
 public/documents/images
 
 #Bin
-bin/
+#bin/
 
 #db schema
 db/schema.rb
