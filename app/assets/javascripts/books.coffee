@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready ->
+$(document).on 'turbolinks:load', ->
   $('#books_list').DataTable
     "order": [[ 3, "desc" ]]
     "lengthMenu": [[25, 50, -1], [ 25, 50, "All"]]

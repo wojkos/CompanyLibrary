@@ -1,0 +1,7 @@
+%h1 Edycja ksiązki
+
+= render 'form', book: @book
+         
+= link_to 'Usuń'.html_safe, @book, method: :delete, data: { confirm: "Czy na pewno chcesz usunąć dokument '#{@book.tittle}'?" },:class => 'btn btn-danger btn-lg pull-right'
+= link_to 'Podgląd', @book, class: 'btn btn-primary btn-lg pull-right' 
+= link_to 'Powrót', books_path, class: 'btn btn-primary btn-lg pull-right'

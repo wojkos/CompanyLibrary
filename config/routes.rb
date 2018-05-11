@@ -13,4 +13,5 @@ Rails.application.routes.draw do
       get 'return_book'
     end
   end
+  get '*path' => redirect('/')
 end

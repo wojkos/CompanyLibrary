@@ -18,21 +18,13 @@
                 = current_user.name
               %br
               = link_to "Wyloguj", signout_path, id: "sign_out", class: 'btn btn-info pull-right'
-            -# -else
-            -#   = link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" 
           %ul.list-unstyled.components
-            %p Dummy Heading
-            %li.active
-              %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#homeSubmenu"} Home
-              %ul#homeSubmenu.collapse.list-unstyled
-                %li
-                  %a{:href => "#"} Home 1
-                %li
-                  %a{:href => "#"} Home 2
-                %li
-                  %a{:href => "#"} Home 3
             %li
-              %a{:href => "#"} About
+              =link_to 'Home', root_path
+            %li
+              =link_to 'Książki', books_path
+            %li
+              %a{:href => "#"} O nas
               %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#pageSubmenu"} Pages
               %ul#pageSubmenu.collapse.list-unstyled
                 %li
@@ -42,12 +34,23 @@
                 %li
                   %a{:href => "#"} Page 3
             %li
-              %a{:href => "#"} Portfolio
-            %li
               %a{:href => "#"} Contact
-          %ul.list-unstyled.CTAs
+              %ul.list-unstyled.CTAs
             %li
               =link_to "Dodaj nową książkę", new_book_path, class: "btn btn-success"
+          -if borrowed_books
+            %h4 Twoje wypożyczone książki:
+            %table.table.table-hover  
+              -borrowed_books.each_with_index do |book,index|
+                %tr
+                  %td
+                    =index + 1
+                  %td
+                    =book.tittle
+                  %td
+                    = link_to '<span class="glyphicon glyphicon-minus" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Zwróć"></span>'.html_safe, return_book_book_path(book), :class => 'btn-xs-action-danger'
+            
+                  
         / Page Content Holder
         #content
           %nav.navbar.navbar-default
@@ -62,5 +65,9 @@
                     =link_to 'Home', root_path
                   %li
                     =link_to 'Książki', books_path
+                  %li
+                    %a{:href => "#"} O nas    
+                  %li
+                    %a{:href => "#"} Kontakt
             .container
               =yield
