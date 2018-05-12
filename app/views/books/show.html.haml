@@ -1,4 +1,3 @@
-%p#notice= notice
 .container
   .row
     .col-xs-12.col-md-4
@@ -14,10 +13,18 @@
       %h4
         %strong Category:
         = @book.category
+        =@book.is_borrowed
+        =@book.borrow_by_id
         
   .row
     .col-xs-12.pt-30
       %p.text-center
-        = link_to 'Wypożycz', borrow_book_path(@book), class: 'btn btn-warning btn-lg'
-        = link_to 'Edit', edit_book_path(@book) , class: 'btn btn-primary btn-lg'
+        -if @book.is_borrowed == false
+          = link_to 'Wypożycz', borrow_book_path(@book), class: 'btn btn-warning btn-lg'
+        - elsif @book.is_borrowed == true && @book.borrow_by_id == current_user.id
+          = link_to 'Zwróć', return_book_book_path(@book), class: 'btn btn-warning btn-lg'
+        - else
+          Książka wypożyczona
+        -if current_user  
+          = link_to 'Edit', edit_book_path(@book) , class: 'btn btn-primary btn-lg'
         = link_to 'Back', books_path, class: 'btn btn-primary btn-lg'

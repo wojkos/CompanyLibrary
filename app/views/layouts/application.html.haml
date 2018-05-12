@@ -36,8 +36,9 @@
             %li
               %a{:href => "#"} Contact
               %ul.list-unstyled.CTAs
-            %li
-              =link_to "Dodaj nową książkę", new_book_path, class: "btn btn-success"
+            -if current_user    
+              %li
+                =link_to "Dodaj nową książkę", new_book_path, class: "btn btn-success"
           -if borrowed_books
             %h4 Twoje wypożyczone książki:
             %table.table.table-hover  
@@ -70,4 +71,10 @@
                   %li
                     %a{:href => "#"} Kontakt
             .container
+              -if notice.present?
+                %aside.alert.alert-info
+                  =notice
+              -if alert.present?
+                %aside.alert.alert-danger
+                  =alert
               =yield

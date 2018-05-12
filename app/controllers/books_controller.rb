@@ -1,5 +1,7 @@
 class BooksController < ApplicationController
+  include ApplicationHelper 
   before_action :set_book, only: [:show, :edit, :update, :destroy, :borrow, :return_book]
+  before_action :authenticate_user, only: [:new, :edit, :update, :destroy, :borrow, :return_book]
 
   # GET /books
   # GET /books.json
@@ -28,7 +30,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to @book, notice: 'Book was successfully created.' }
+        format.html { redirect_to @book, notice: 'Dodałeś nową książkę' }
         format.json { render :show, status: :created, location: @book }
       else
         format.html { render :new }
@@ -42,7 +44,7 @@ class BooksController < ApplicationController
   def update
     respond_to do |format|
       if @book.update(book_params)
-        format.html { redirect_to @book, notice: 'Book was successfully updated.' }
+        format.html { redirect_to @book, notice: 'Zmieniłeś inforację o książce' }
         format.json { render :show, status: :ok, location: @book }
       else
         format.html { render :edit }
@@ -55,26 +57,17 @@ class BooksController < ApplicationController
   # DELETE /books/1.json
   def destroy
     @book.destroy
-    respond_to do |format|
-      format.html { redirect_to books_url, notice: 'Książka została usunięta.' }
-      format.json { head :no_content }
-    end
+    redirect_to books_url, notice: 'Książka została usunięta.'
   end
 
   def borrow 
-    @book.borrow current_user
-    respond_to do |format|
-      format.html { redirect_to books_url, notice: "Gratulacje! Wypożyczyłeś książkę #{@book.tittle}" }
-      format.json { head :no_content }
-    end
+      @book.borrow current_user
+      redirect_to books_url, notice: "Gratulacje! Wypożyczyłeś książkę #{@book.tittle}"
   end
   
   def return_book
     @book.return_book
-    respond_to do |format|
-      format.html { redirect_to books_url, notice: "Oddałeś książkę #{@book.tittle}" }
-      format.json { head :no_content }
-    end
+    redirect_to books_url , notice: "Oddałeś książkę #{@book.tittle}"
   end
 
   private
