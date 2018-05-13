@@ -1,17 +1,16 @@
-%h1 Books
-
+%h1 Nasze książki
 %table.table.table-striped.table-condensed#books_list
   %thead
     %tr
       %th.text-nowrap
         %span.glyphicon.glyphicon-sort
-          Title
+          Tytuł
       %th.text-nowrap
         %span.glyphicon.glyphicon-sort
-          Author
+          Autor
       %th.text-nowrap
         %span.glyphicon.glyphicon-sort
-          Category
+          Kategoria
       %th
   %tbody
     - @books.each do |book|

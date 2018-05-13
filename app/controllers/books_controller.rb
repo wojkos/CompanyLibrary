@@ -44,7 +44,7 @@ class BooksController < ApplicationController
   def update
     respond_to do |format|
       if @book.update(book_params)
-        format.html { redirect_to @book, notice: 'Zmieniłeś inforację o książce' }
+        format.html { redirect_to @book, notice: 'Zmieniłeś informację o książce' }
         format.json { render :show, status: :ok, location: @book }
       else
         format.html { render :edit }

@@ -8,13 +8,13 @@
         - book.errors.full_messages.each do |message|
           %li= message
   .form-group
-    = form.label :tittle
+    = form.label :tittle , 'Tytuł'
     = form.text_field :tittle, id: :book_tittle, class: 'form-control'
   .form-group
-    = form.label :author
+    = form.label :author, "Autor"
     = form.text_area :author, id: :book_author, class: 'form-control'
   .form-group
-    = form.label :category
+    = form.label :category, "Kategoria"
     = form.text_area :category, id: :book_category, class: 'form-control'
     -unless @book.image_file_name.nil?
       =image_tag @book.image.url(:medium)
@@ -23,4 +23,4 @@
     = form.file_field :image, class: 'form-control'
   .form-group
   .actions
-    = form.submit "Zatwierdź", class: "btn btn-primary"
+    = form.submit "Zatwierdź", class: "btn btn-primary pull-right btn-lg"

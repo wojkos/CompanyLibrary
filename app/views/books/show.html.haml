@@ -8,10 +8,10 @@
         %strong Tytuł:
         = @book.tittle
       %h3
-        %strong Author:
+        %strong Autor:
         = @book.author
       %h4
-        %strong Category:
+        %strong Kategoria:
         = @book.category
         
   .row
@@ -24,5 +24,5 @@
         - else
           Książka wypożyczona
         -if current_user  
-          = link_to 'Edit', edit_book_path(@book) , class: 'btn btn-primary btn-lg'
-        = link_to 'Back', books_path, class: 'btn btn-primary btn-lg'
+          = link_to 'Edycja', edit_book_path(@book) , class: 'btn btn-primary btn-lg'
+        = link_to 'Powrót', books_path, class: 'btn btn-primary btn-lg'
