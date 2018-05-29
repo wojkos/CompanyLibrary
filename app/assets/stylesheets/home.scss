@@ -1,3 +1,16 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#home_container {
+    background-image: url(books-1655783_1920.jpg);
+    background-repeat: no-repeat;
+    height: 40vw;
+}
+
+.white-text {
+    color: white;
+}
+
+.pt30 {
+    padding-top: 30px;
+}

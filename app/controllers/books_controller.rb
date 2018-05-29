@@ -61,8 +61,8 @@ class BooksController < ApplicationController
   end
 
   def borrow 
-      @book.borrow current_user
-      redirect_to books_url, notice: "Gratulacje! Wypożyczyłeś książkę #{@book.tittle}"
+    @book.borrow current_user
+    redirect_to books_url, notice: "Gratulacje! Wypożyczyłeś książkę #{@book.tittle}"
   end
   
   def return_book
